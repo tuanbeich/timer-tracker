@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Time Tracker</title>
+  <meta name="description" content="Simple time tracker with session logs and theme toggle" />
+  <link rel="stylesheet" href="./src/styles/style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <h1>Mini Time Tracker</h1>
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        <li><button id="theme-toggle" type="button" aria-pressed="false">Toggle Theme</button></li>
+        <li><button id="clear-logs" type="button">Clear Logs</button></li>
+        <li><button id="logout-btn" type="button">Logout</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <!-- User Profile Card Section -->
+    <section class="profile-card" aria-labelledby="profile-heading">
+      <h2 id="profile-heading">User Profile</h2>
+      <figure class="profile-figure">
+        <img id="profile-avatar" src="https://via.placeholder.com/96" alt="User avatar" width="96" height="96" />
+        <figcaption>
+          <span id="profile-name" class="profile-name">Guest</span>
+        </figcaption>
+      </figure>
+      <!-- <form id="login-form" aria-label="Set your name" autocomplete="off">
+        <label for="username-input">Your name</label>
+        <input id="username-input" name="username" type="text" placeholder="Enter name" required minlength="1" />
+        <button type="submit">Save</button>
+      </form> -->
+
+      <form id="task-form" action="">
+        <label for="username-input">Your name</label>
+        <input id="username-input" name="username" type="text" placeholder="Enter name" required minlength="1" />
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+    <!-- Timer Section -->
+    <section class="timer-section" aria-labelledby="timer-heading">
+      <h2 id="timer-heading">Timer</h2>
+      <div id="timer-display" class="timer-display" aria-live="polite" role="status" aria-atomic="true">00:00:00</div>
+      <div class="timer-controls" role="group" aria-label="Timer controls">
+        <button id="start-btn" type="button">Start</button>
+        <button id="pause-btn" type="button" disabled>Pause</button>
+        <button id="reset-btn" type="button" disabled>Reset</button>
+      </div>
+    </section>
+
+    <!-- Log Section -->
+    <section class="log-section" aria-labelledby="log-heading">
+      <h2 id="log-heading">Session Logs</h2>
+
+      <form id="filter-form" class="filter-form" aria-label="Filter sessions by date">
+        <label for="filter-date">Filter by date</label>
+        <input id="filter-date" type="date" />
+        <button type="button" id="filter-clear">Clear</button>
+      </form>
+
+      <div class="log-table-wrapper">
+        <table class="log-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Start</th>
+              <th scope="col">End</th>
+              <th scope="col">Duration</th>
+            </tr>
+          </thead>
+          <tbody id="log-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built for Core Web Skills Assessment.</p>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
